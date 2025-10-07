@@ -532,48 +532,61 @@ body::before {
 
 /* Header dan Navigasi */
 header {
-    background-color: rgba(26, 26, 26, 0.9);
-    padding: 20px 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    backdrop-filter: blur(10px);
+  background-color: rgba(26, 26, 26, 0.9);
+  padding: 20px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between; /* kiri = logo, kanan = menu */
+  align-items: center;
+  padding: 0 40px; /* biar ga mepet banget ke pinggir */
+}
+
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* jarak antara gambar dan teks */
+}
+
+.logo-img {
+  width: 40px;
+  height: auto;
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #6c5ce7;
+  font-size: 24px;
+  font-weight: bold;
+  color: #6c5ce7;
 }
 
 .nav-links {
-    display: flex;
-    list-style: none;
+  display: flex;
+  list-style: none;
 }
 
 .nav-links li {
-    margin-left: 30px;
+  margin-left: 30px;
 }
 
 .nav-links a {
-    color: #f0f0f0;
-    text-decoration: none;
-    transition: color 0.3s;
-    padding: 8px 16px;
-    border-radius: 5px;
+  color: #f0f0f0;
+  text-decoration: none;
+  transition: color 0.3s, background-color 0.3s;
+  padding: 8px 16px;
+  border-radius: 5px;
 }
 
 .nav-links a:hover {
-    color: #6c5ce7;
-    background-color: rgba(108, 92, 231, 0.1);
+  color: #6c5ce7;
+  background-color: rgba(108, 92, 231, 0.1);
 }
+
 
 /* Form Login */
 .login-container {
