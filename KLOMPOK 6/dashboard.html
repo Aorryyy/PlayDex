@@ -13,15 +13,18 @@
     <div class="lightning-flash"></div>
     <div id="realLightningContainer"></div>
     
-    <!-- Header -->
+    <!-- Header Bagian Dashboard -->
     <header>
         <div class="container">
             <nav>
-             <div class="logo">GameHub</div>
-                <ul class="nav-links">
-                    <li><a href="login.html" onclick="logout()">Keluar</a></li>
-                    <li><a href="#profil" onclick="showProfile()">Profil</a></li>
-                </ul>
+        <div class="logo-group">
+            <img src="image/maloetta.png" alt="GameHub Logo" class="logo-img">
+        <div class="logo">GameHub</div>
+        </div>
+            <ul class="nav-links">
+            <li><a href="login.html" onclick="logout()">Keluar</a></li>
+            <li><a href="#profil" onclick="showProfile()">Profil</a></li>
+            </ul>
             </nav>
         </div>
     </header>
@@ -40,12 +43,25 @@
             </div>
             <div class="category-filter">
                 <select id="categorySelect" onchange="filterGames()">
-                    <option value="all">Semua Kategori</option>
+                    <option value="genres">Genres</option>
                     <option value="action">Action</option>
                     <option value="adventure">Adventure</option>
-                    <option value="rpg">RPG</option>
+                    <option value="rpg">RPG (Role-Playing Game)</option>
                     <option value="strategy">Strategy</option>
                     <option value="sports">Sports</option>
+                    <option value="arcade">Arcade</option>
+                    <option value="comedy">Comedy</option>
+                    <option value="fantasy">Fantasy</option>
+                    <option value="horror">Horror</option>
+                    <option value="mystery">Mystery</option>
+                    <option value="puzzle">Puzzle</option>
+                    <option value="romance">Romance</option>
+                    <option value="survival">Survival</option>
+                    <option value="simulation">Simulation</option>
+                    <option value="cozy">Cozy</option>
+                    <option value="music">Music</option>
+                    <option value="battle royal">Battle Royal</option>
+                    <option value="mmorpg">MMORPG (Massively Multiplayer Online RPG)</option>
                 </select>
             </div>
         </div>
