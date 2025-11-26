@@ -1,0 +1,99 @@
+body {
+    background: #1E1E1E;
+    font-family: Inter, sans-serif;
+    color: white;
+    margin: 0;
+    padding: 40px;
+}
+
+.detail-container {
+    max-width: 1300px;
+    margin: auto;
+    display: flex;
+    gap: 50px;
+}
+
+/* LEFT SIDE */
+
+.left-side {
+    width: 55%;
+}
+
+.cover-img {
+    width: 100%;
+    border-radius: 25px;
+    margin-bottom: 40px;
+}
+
+.review-box {
+    background: #00000070;
+    padding: 30px;
+    border-radius: 15px;
+    height: 350px;
+}
+
+.review-box h2 {
+    margin-top: 0;
+}
+
+
+
+/* RIGHT SIDE */
+
+.right-side {
+    width: 45%;
+}
+
+.game-title {
+    font-size: 38px;
+    margin-bottom: 5px;
+}
+
+.release {
+    opacity: 0.7;
+    margin-bottom: 20px;
+}
+
+.info-text p {
+    line-height: 1.6;
+}
+
+.sub-title {
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+/* MORE GAME CARDS */
+
+.more-games {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.more-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: white;
+    background: #ffffff10;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.more-card:hover {
+    background: #ffffff20;
+}
+
+.more-card img {
+    width: 120px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.more-card span {
+    font-size: 18px;
+}
