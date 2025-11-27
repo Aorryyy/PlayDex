@@ -8,5 +8,5 @@ $delete = mysqli_query ($connect, "DELETE FROM playdex WHERE id='$id'");
 if($delete) {
     header('Location : simpelajh.html');  
 } else {
-    echo 'Delete data gagal'; 
+    echo 'Delete data gagal coy'; 
 }
