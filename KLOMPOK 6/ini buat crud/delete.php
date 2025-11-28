@@ -1,4 +1,4 @@
-<?php 
+<?php  // delete buat rating game
 include('koneksi.php');//mengkoneksikan database 
  
 $id = $_GET['rating']; //mengambil id yang di parsing dari halaman list.php 

@@ -1,4 +1,4 @@
-<?php
+<?php //ini buat koneksiin crud ke html
 include "conecction.php";
 
 if (!isset($_GET['id'])) {
