@@ -6,266 +6,259 @@
     <title>Login</title>
 
     <style>
-        /* ==== GLOBAL ==== */
-        body {
-            margin: 0;
-            padding: 0;
-            background: radial-gradient(circle at top, #1f1f1f, #000);
-            color: #ffffff;
-            font-family: 'Poppins', sans-serif;
-        }
+    /* ==== GLOBAL ==== */
+    body {
+        margin: 0;
+        padding: 0;
+        background: radial-gradient(circle at top, #1f1f1f, #000);
+        color: #ffffff;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    /* ==== NAVBAR ==== */
+    .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 70px;
+        background-color: #000; 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 50px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        z-index: 100;
+    }
+
+    /* Logo kiri */
+    .navbar .logo {
+        color: #fff;
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    /* Bagian kanan navbar */
+    .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    /* Tombol profil */
+    .nav-links li a {
+        text-decoration: none;
+        background: transparent;
+        border: 1px solid #fff;
+        border-radius: 25px;
+        padding: 6px 18px;
+        color: #fff;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .nav-links li a:hover {
+        background: #fff;
+        color: #000;
+    }
+
+    /* Search bar */
+    .search-bar {
+        background-color: #1a1a1a;
+        border: none;
+        border-radius: 25px;
+        padding: 6px 15px;
+        color: #fff;
+        outline: none;
+        width: 150px;
+        transition: 0.3s;
+    }
+
+    .search-bar:focus {
+        width: 200px;
+        background-color: #2a2a2a;
+    }
+
+    /* ==== LOGIN CARD ==== */
+    .login-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .login-form {
+        margin-top: 80px;
+        background: rgba(255,255,255,0.05);
+        padding: 40px 35px;
+        width: 340px;
+        border-radius: 18px;
+        backdrop-filter: blur(20px);
+        box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+        animation: fadeIn 0.5s ease;
+    }
+
+    .login-form h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #00eaff;
+        text-shadow: 0 0 10px #00eaff;
+    }
+
+    .form-group {
+        margin-bottom: 18px;
+    }
+
+    .form-group label {
+        font-size: 14px;
+        margin-bottom: 5px;
+        display: block;
+        opacity: 0.9;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 10px;
+        border: none;
+        background: #0f0f0f;
+        color: #fff;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 10px;
+        background: #00eaff;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        color: #000;
+        font-weight: bold;
+        margin-top: 8px;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        box-shadow: 0 0 12px #00eaff;
+        transform: scale(1.03);
+    }
+
+    .register-link {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .register-link a {
+        color: #00eaff;
+        text-decoration: none;
+    }
 
 
-        /* ==== NAVBAR ==== */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 70px;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(10px);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 50px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-            z-index: 100;
-        }
+    /* ==== MODAL ==== */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.7);
+        backdrop-filter: blur(3px);
+    }
 
-        .logo {
-            font-size: 24px;
-            font-weight: 700;
-            color: #00eaff;
-            text-shadow: 0 0 10px #00eaff;
-        }
+    .modal-content {
+        background: #141414;
+        width: 350px;
+        padding: 25px;
+        margin: 10% auto;
+        border-radius: 15px;
+        box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        animation: fadeIn 0.4s ease;
+    }
 
-        .nav-links li {
-            list-style: none;
-        }
+    .close-modal {
+        float: right;
+        font-size: 22px;
+        cursor: pointer;
+    }
 
-        .nav-links li a {
-            text-decoration: none;
-            padding: 8px 20px;
-            border-radius: 25px;
-            border: 1px solid #ffffff55;
-            color: #fff;
-            background: #ffffff10;
-            backdrop-filter: blur(10px);
-            transition: 0.3s;
-        }
+    .close-modal:hover {
+        color: #00eaff;
+    }
 
-        .nav-links li a:hover {
-            background: #00eaff;
-            color: #000;
-            border-color: #00eaff;
-            box-shadow: 0 0 10px #00eaff;
-        }
-
-        .search-bar {
-            padding: 7px 15px;
-            border-radius: 25px;
-            border: none;
-            background: #1c1c1c;
-            color: #fff;
-            transition: 0.3s;
-        }
-
-        .search-bar:focus {
-            width: 200px;
-            background: #2b2b2b;
-        }
-
-
-        /* ==== LOGIN CARD ==== */
-        .login-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .login-form {
-            margin-top: 80px;
-            background: rgba(255,255,255,0.05);
-            padding: 40px 35px;
-            width: 340px;
-            border-radius: 18px;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-            animation: fadeIn 0.5s ease;
-        }
-
-        .login-form h2 {
-            text-align: center;
-            margin-bottom: 25px;
-            color: #00eaff;
-            text-shadow: 0 0 10px #00eaff;
-        }
-
-        .form-group {
-            margin-bottom: 18px;
-        }
-
-        .form-group label {
-            font-size: 14px;
-            margin-bottom: 5px;
-            display: block;
-            opacity: 0.9;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 10px 12px;
-            border-radius: 10px;
-            border: none;
-            background: #0f0f0f;
-            color: #fff;
-        }
-
-        .btn {
-            width: 100%;
-            padding: 10px;
-            background: #00eaff;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            color: #000;
-            font-weight: bold;
-            margin-top: 8px;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            box-shadow: 0 0 12px #00eaff;
-            transform: scale(1.03);
-        }
-
-        .register-link {
-            text-align: center;
-            margin-top: 15px;
-        }
-
-        .register-link a {
-            color: #00eaff;
-            text-decoration: none;
-        }
-
-
-        /* ==== MODAL ==== */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(3px);
-        }
-
-        .modal-content {
-            background: #141414;
-            width: 350px;
-            padding: 25px;
-            margin: 10% auto;
-            border-radius: 15px;
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
-            animation: fadeIn 0.4s ease;
-        }
-
-        .close-modal {
-            float: right;
-            font-size: 22px;
-            cursor: pointer;
-        }
-
-        .close-modal:hover {
-            color: #00eaff;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
     </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-    <div class="logo">★ playdex</div>
-    <div class="nav-right">
-        <ul class="nav-links">
-            <li><a href="login.html">Profil</a></li>
-        </ul>
-        <input type="text" placeholder="search..." class="search-bar">
-    </div>
-</nav>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">★ playdex</div>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="login.html">Profil</a></li>
+            </ul>
+            <input type="text" placeholder="search..." class="search-bar">
+        </div>
+    </nav>
 
-<!-- Login -->
-<section class="login-container">
-    <div class="login-form">
-        <h2>Masuk ke GameHub</h2>
-
-        <form action="login.php" method="POST">
-            <div class="form-group">
-                <label>Username</label>
-                <input type="text" name="username" placeholder="Masukkan username" required>
+    <!-- Login -->
+    <section class="login-container">
+        <div class="login-form">
+            <h2>Masuk ke GameHub</h2>
+            <form action="login.php" method="POST">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" name="username" placeholder="Masukkan username" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" placeholder="Masukkan password" required>
+                </div>
+                <button type="submit" class="btn">Masuk</button>
+            </form>
+            <div class="register-link">
+                <p>Belum punya akun? <a href="#" onclick="showRegister()">Daftar di sini</a></p>
             </div>
+        </div>
+    </section>
 
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password" placeholder="Masukkan password" required>
-            </div>
-
-            <button type="submit" class="btn">Masuk</button>
-        </form>
-
-        <div class="register-link">
-            <p>Belum punya akun? <a href="#" onclick="showRegister()">Daftar di sini</a></p>
+    <!-- Modal Register -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeRegister()">&times;</span>
+            <h2>Daftar Akun Baru</h2>
+            <form action="register.php" method="POST">
+                <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" required>
+                </div>
+                <button type="submit" class="btn">Daftar</button>
+            </form>
         </div>
     </div>
-</section>
 
-<!-- Modal Register -->
-<div id="registerModal" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeRegister()">&times;</span>
-        <h2>Daftar Akun Baru</h2>
-
-        <form action="register.php" method="POST">
-
-            <div class="form-group">
-                <label>Nama Lengkap</label>
-                <input type="text" name="name" required>
-            </div>
-
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" name="email" required>
-            </div>
-
-            <div class="form-group">
-                <label>Username</label>
-                <input type="text" name="username" required>
-            </div>
-
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" name="password" required>
-            </div>
-
-            <button type="submit" class="btn">Daftar</button>
-        </form>
-    </div>
-</div>
-
-<script>
-    function showRegister() {
-        document.getElementById('registerModal').style.display = 'block';
-    }
-    function closeRegister() {
-        document.getElementById('registerModal').style.display = 'none';
-    }
-</script>
-
+    <script>
+        function showRegister() {
+            document.getElementById('registerModal').style.display = 'block';
+        }
+        function closeRegister() {
+            document.getElementById('registerModal').style.display = 'none';
+        }
+    </script>
 </body>
 </html>

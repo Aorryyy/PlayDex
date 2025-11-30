@@ -1,5 +1,5 @@
 <?php //ini buat koneksiin crud ke html
-include "conecction.php";
+include "game.php";
 
 if (!isset($_GET['id'])) {
     die("Game not found.");
@@ -7,7 +7,7 @@ if (!isset($_GET['id'])) {
 
 $id = intval($_GET['id']);
 
-$query = mysqli_query($conn, "SELECT * FROM game WHERE id = $id LIMIT 1");
+$query = mysqli_query($conn, "SELECT * FROM game WHERE id_game = $id LIMIT 1");
 $game = mysqli_fetch_assoc($query);
 
 if (!$game) {
@@ -23,16 +23,13 @@ if (!$game) {
     <link rel="stylesheet" href="detail.css">
 </head>
 <body>
-<div class="detail-container">
-
+    <div class="detail-container">
     <!-- LEFT SIDE -->
     <div class="left-side">
         <img src="img/<?= $game['cover']; ?>" class="cover-img">
         <div class="review-box">
             <h2>Review</h2>
-            <p>
-                (Di sini nanti bisa kamu isi komentar user / review database)
-            </p>
+            <p>(Di sini nanti bisa kamu isi komentar user / review database)</p>
         </div>
     </div>
 
@@ -44,14 +41,14 @@ if (!$game) {
             <p><b>Developers:</b> <?= $game['developer']; ?></p>
             <p><b>Publishers:</b> <?= $game['publisher']; ?></p>
             <p><b>Genre:</b> <?= $game['genre']; ?></p>
-            <p><b>Platforms:</b> <?= $game['platforms']; ?></p>
+            <p><b>Platform:</b> <?= $game['platform']; ?></p>
             <p><?= $game['description']; ?></p>
         </div>
         <h2 class="sub-title">More from <?= $studio; ?></h2>
         <div class="more-games">
             <?php while ($row = mysqli_fetch_assoc($more)): ?>
                 <a href="detail.php?id=<?= $row['id']; ?>" class="more-card">
-                    <img src="img/<?= $row['cover']; ?>">
+                    <img src="img/<?= $row['image']; ?>">
                     <span><?= $row['title']; ?></span>
                 </a>
             <?php endwhile; ?>
