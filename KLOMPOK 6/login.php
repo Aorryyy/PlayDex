@@ -198,7 +198,7 @@
         <div class="logo">★ playdex</div>
         <div class="nav-right">
             <ul class="nav-links">
-                <li><a href="login.html">Profil</a></li>
+                <li><a href="profil.php">Profil</a></li>
             </ul>
             <input type="text" placeholder="search..." class="search-bar">
         </div>
