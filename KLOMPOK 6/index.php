@@ -1,3 +1,9 @@
+<?php
+include 'koneksi.php';
+
+$result = mysqli_query($connect, "SELECT * FROM game");
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -33,27 +39,13 @@
     <!-- top charts-->
     <section class="top-charts">
         <h3>🏆 Top Charts</h3>
-        <div div class="game-list">
-            <a href="detailgame.php?id=<?= $row['id_game']; ?>" class="game-item">
-            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/coaczd.webp" alt="Counter-Strike 2">
-            <span>Counter-Strike 2</span></a>
-
-            <a href="detailgame.php?id=<?= $row['id_game']; ?>" class="game-item">
-            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co6ene.webp" alt="Dota 2">
-            <span>Dota 2</span></a>
-    
-            <a href="detailgame.php?id=3" class="game-item">
-            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/coaam4.webp" alt="PUBG: BATTLEGROUNDS">
-            <span>PUBG: BATTLEGROUNDS</span></a>
-    
-            <a href="detailgame.php?id=4" class="game-item">
-            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co7lqm.webp" alt="ARC Raiders">
-            <span>Mobile Legends; Bang Bang</span></a>
-    
-            <a href="detailgame.php?id=5" class="game-item">
-            <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/coa7u1.webp" alt="Battlefield 6">
-            <span>Honkai Star Rail</span>
-            </a>
+        <div class="game-list">
+            <?php while ($row = mysqli_fetch_assoc($result)) : ?>
+                <a href="detailgame.php?id=<?= $row['id_game']; ?>" class="game-item">
+                    <img src="img/<?= $row['image']; ?>" alt="<?= $row['title']; ?>">
+                    <span><?= $row['title']; ?></span>
+                </a>
+            <?php endwhile; ?>
         </div>
     </section>
 

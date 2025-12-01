@@ -1,33 +1,22 @@
-<?php //ini login woi
-include 'koneksi.php';
+<?php
 session_start();
+include "koneksi.php";
 
-if (isset($_POST['login'])) {
+$username = $_POST['username'];
+$password = $_POST['password'];
 
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+// Query cek user
+$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+$result = mysqli_query($connect, $query);
 
-    // CEK USER DI DATABASE
-    $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-    $result = mysqli_query($connect, $query);
+// Jika jumlah row = 1 berarti ada pengguna
+if(mysqli_num_rows($result) === 1){
+    $user = mysqli_fetch_assoc($result);
+    $_SESSION['username'] = $user['username'];
 
-    // jika user ditemukan
-    if (mysqli_num_rows($result) === 1) {
-
-        $data = mysqli_fetch_assoc($result);
-
-        // simpan session
-        $_SESSION['id_users'] = $data['id_users'];
-        $_SESSION['username'] = $data['username'];
-
-        header("Location: dashboard.php");
-        exit();
-    } 
-    else {
-        echo "<script>
-                alert('Username atau password salah!');
-                window.location='login.html';
-              </script>";
-    }
+    header("Location: index.php");
+    exit();
+} else {
+    echo "<script>alert('Username atau password salah!'); window.location='login.php';</script>";
 }
 ?>

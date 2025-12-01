@@ -1,5 +1,5 @@
 <?php
-include "koneksi.php"; // PASTIKAN nama file sama
+include "koneksi.php";
 
 if (!isset($_GET['id'])) {
     die("Game not found.");
@@ -47,7 +47,7 @@ if (!$game) {
         <h2 class="sub-title">More from <?= $studio; ?></h2>
         <div class="more-games">
             <?php while ($row = mysqli_fetch_assoc($more)): ?>
-                <a href="detail.php?id=<?= $row['id']; ?>" class="more-card">
+                <a href="detail.php?id=<?= $row['id_game']; ?>" class="more-card">
                     <img src="img/<?= $row['image']; ?>">
                     <span><?= $row['title']; ?></span>
                 </a>

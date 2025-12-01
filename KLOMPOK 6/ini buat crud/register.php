@@ -1,21 +1,17 @@
-<?php // ini register
-include 'koneksi.php';
+<?php
+include "koneksi.php";
 
-if (isset($_POST['register'])) {
+$name = $_POST['name'];
+$email = $_POST['email'];
+$username = $_POST['username'];
+$password = $_POST['password'];
 
-    $name     = $_POST["name"];
-    $email    = $_POST["email"];
-    $username = $_POST["username"];
-    $password = $_POST["password"];
+$sql = "INSERT INTO users (name, username, email, password)
+        VALUES ('$name', '$username', '$email', '$password')";
 
-    $query = "INSERT INTO users (name, email, username, password)
-              VALUES ('$name', '$email', '$username', '$password')";
-
-    mysqli_query($connect, $query);
-
-    echo "<script>
-            alert('Pendaftaran berhasil! Silakan login.');
-            window.location='login.html';
-          </script>";
+if(mysqli_query($connect, $sql)){
+    echo "<script>alert('Registrasi berhasil! Silakan login.'); window.location='login.php';</script>";
+} else {
+    echo "Error: " . mysqli_error($connect);
 }
 ?>
