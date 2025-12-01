@@ -1,5 +1,5 @@
-<?php //ini buat koneksiin crud ke html
-include "koneksi.php";
+<?php
+include "koneksi.php"; // PASTIKAN nama file sama
 
 if (!isset($_GET['id'])) {
     die("Game not found.");
@@ -7,7 +7,7 @@ if (!isset($_GET['id'])) {
 
 $id = intval($_GET['id']);
 
-$query = mysqli_query($conn, "SELECT * FROM game WHERE id_game = $id LIMIT 1");
+$query = mysqli_query($connect, "SELECT * FROM game WHERE id_game = '$id'");
 $game = mysqli_fetch_assoc($query);
 
 if (!$game) {
