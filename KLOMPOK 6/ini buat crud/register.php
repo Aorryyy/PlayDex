@@ -1,5 +1,5 @@
 <?php // ini register
-include 'connection.php';
+include 'koneksi.php';
 
 if (isset($_POST['register'])) {
 

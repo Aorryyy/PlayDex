@@ -1,5 +1,5 @@
 <?php //ini buat koneksiin crud ke html
-include "game.php";
+include "koneksi.php";
 
 if (!isset($_GET['id'])) {
     die("Game not found.");
