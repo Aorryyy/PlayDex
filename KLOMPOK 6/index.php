@@ -20,7 +20,7 @@ $result = mysqli_query($connect, "SELECT * FROM game");
         <div class="logo">★ playdex</div>
         <div class="nav-right">
             <ul class="nav-links">
-            <li><a href="login.html" onclick="showProfile()">Profil</a></li>
+            <li><a href="profil.php" onclick="showProfile()">Profil</a></li>
             </ul>
             <input type="text" placeholder="search..." class="search-bar">
         </div>

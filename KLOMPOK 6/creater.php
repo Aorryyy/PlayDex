@@ -5,18 +5,25 @@ include "koneksi.php";
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-// Query cek user
-$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-$result = mysqli_query($connect, $query);
+// Cek user di database
+$sql = "SELECT * FROM users WHERE username='$username' AND password='$password' LIMIT 1";
+$result = mysqli_query($connect, $sql);
 
-// Jika jumlah row = 1 berarti ada pengguna
-if(mysqli_num_rows($result) === 1){
+// Kalau ada 1 user cocok
+if (mysqli_num_rows($result) === 1) {
     $user = mysqli_fetch_assoc($result);
-    $_SESSION['username'] = $user['username'];
 
+    // Simpan data penting ke session
+    $_SESSION['user_id']  = $user['id_users'];
+    $_SESSION['username'] = $user['username'];
+    $_SESSION['name']     = $user['name'];
+    $_SESSION['email']    = $user['email'];
+
+    // Arahkan ke halaman utama
     header("Location: index.php");
     exit();
 } else {
-    echo "<script>alert('Username atau password salah!'); window.location='login.php';</script>";
+    // Login gagal
+    echo "<script>alert('Username atau password salah'); window.location='login.php';</script>";
+    exit();
 }
-?>
