@@ -35,58 +35,9 @@
     .navbar .logo {
       color: #fff;
       font-size: 22px;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: 1px;
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .nav-links {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-    }
-
-    .nav-links li a {
-      text-decoration: none;
-      background: transparent;
-      border: 1px solid #fff;
-      border-radius: 999px;
-      padding: 7px 16px;
-      color: #fff;
-      cursor: pointer;
-      transition: 0.25s ease;
-      font-size: 14px;
-      display: inline-block;
-    }
-
-    .nav-links li a:hover {
-      background: #fff;
-      color: #000;
-      transform: translateY(-1px);
-    }
-
-    .search-bar {
-      background-color: #1a1a1a;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 999px;
-      padding: 7px 14px;
-      color: #fff;
-      outline: none;
-      width: 160px;
-      transition: 0.25s ease;
-    }
-
-    .search-bar:focus {
-      width: 220px;
-      background-color: #2a2a2a;
-      border-color: rgba(0,234,255,0.35);
-      box-shadow: 0 0 0 3px rgba(0,234,255,0.15);
+      font-family: 'Poppins', sans-serif;
     }
 
     /* ==== LOGIN CARD ==== */
@@ -240,18 +191,12 @@
   <!-- NAVBAR -->
   <nav class="navbar">
     <div class="logo">★ playdex</div>
-    <div class="nav-right">
-      <ul class="nav-links">
-        <li><a href="profil.php">Profil</a></li>
-      </ul>
-      <input type="text" placeholder="search..." class="search-bar" />
-    </div>
   </nav>
 
   <!-- Login -->
   <section class="login-container">
     <div class="login-form">
-      <h2>Masuk ke GameHub</h2>
+      <h2>Masuk ke PlayDex</h2>
 
       <form action="creater.php" method="POST" autocomplete="off">
         <div class="form-group">
